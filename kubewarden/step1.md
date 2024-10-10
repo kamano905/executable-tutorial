@@ -6,7 +6,7 @@
 - `sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64`{{exec}}
 
 ## Create cluster with one node
-`minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus=1 --memory=1600mb`{{exec}}
+`minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus=1 --memory=1983mb`{{exec}}
 
 
 ## Setup kubectl

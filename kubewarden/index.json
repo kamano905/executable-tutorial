@@ -7,12 +7,36 @@
     },
     "steps": [
       {
-        "title": "List all pods",
+        "title": "Setup kubernetes",
         "text": "step1.md"
+      },
+      {
+        "title": "Setup kubewarden",
+        "text": "step2.md"
+      },
+      {
+        "title": "Policy1",
+        "text": "step3.md"
       }
     ],
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "files": [
+        {
+          "file": "pod1.yaml",
+          "target": "pods"
+        },
+        {
+          "file": "policy1.yaml",
+          "target": "policies"
+        },
+        {
+          "file": "deny.rego",
+          "target": "policies"
+        }
+      ]
     }
   },
   "backend": {
