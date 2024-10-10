@@ -1,0 +1,21 @@
+{
+  "title": "Policy as Code with Kubewarden: Implement and Enforce Kubernetes Policies",
+  "description": "",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "List all pods",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
