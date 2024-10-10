@@ -23,7 +23,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "files": [
+      "host01": [
         {
           "file": "pod1.yaml",
           "target": "pods"
