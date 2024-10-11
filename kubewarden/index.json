@@ -39,6 +39,22 @@
         {
           "file": "deny.rego",
           "target": "policies"
+        },
+        {
+          "file": "policy.rego",
+          "target": "policies"
+        },
+        {
+          "file": "request.rego",
+          "target": "policies"
+        },
+        {
+          "file": "default-ns.json",
+          "target": "policies"
+        },
+        {
+          "file": "other-ns.json",
+          "target": "policies"
         }
       ]
     }
