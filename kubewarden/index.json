@@ -41,7 +41,7 @@
           "target": "policies"
         },
         {
-          "file": "policy.rego",
+          "file": "policyexample.rego",
           "target": "policies"
         },
         {
