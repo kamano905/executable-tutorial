@@ -3,6 +3,30 @@
 
 ### Welcome !
 
-In this scenario we'll learn how to list all pods in the cluster.
+**What is a Policy?**
+- When you set up the infrastructure required to run applications, whether manually or through code, it’s essential to ensure that it adheres to security, cost-efficiency, and compliance standards.
 
-**HAVE FUN**
+- For example, when deploying web applications on the cloud, you need to ensure that all data stored in databases is encrypted and that all cloud resources are properly tagged for tracking and management.
+
+- Once the application is live, you also need to make sure that critical resources are backed up daily and monitor for underutilized resources to avoid unnecessary expenses.
+
+- All these rules, criteria, and conditions that guide how infrastructure should be configured and managed before, during, and after deployment are defined as policies.
+
+**What is a Policy?**
+- To eliminate the need for manual intervention and maintain consistency across environments (e.g., development, staging, and production), these policies can be defined as code—this approach is known as Policy as Code.
+
+- Writing policies as code also allows for version control, making it possible to track and manage changes over time.
+
+- Additionally, with Policy as Code, policies can be tested just like software, ensuring they function correctly before being applied to the environment.
+
+
+
+
+
+
+
+
+
+
+
+
