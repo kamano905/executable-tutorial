@@ -3,7 +3,7 @@
 ## Build and deploy policy
 - `opa build -t wasm -e kubernetes/admission/deny policies/deny.rego`{{exec}}
 - `tar -xvzf bundle.tar.gz`{{exec}}
-- `nohup python3 -m http.server`{{exec}}
+- `kubectl create configmap privileged-pod-policy --from-file=policy.wasm`{{exec}}
 
 ## Apply policy
 - `kubectl apply -f policies/policy1.yaml`{{exec}}

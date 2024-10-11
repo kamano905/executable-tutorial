@@ -3,7 +3,7 @@ kind: ClusterAdmissionPolicy
 metadata:
   name: privileged-pod-policy
 spec:
-  module: http://localhost:8000/policy.wasm
+  module: file:///policy.wasm
   rules:
   - apiGroups: [""]
     apiVersions: ["v1"]
