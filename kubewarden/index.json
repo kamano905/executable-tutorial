@@ -37,7 +37,15 @@
           "target": "policies"
         },
         {
+          "file": "metadata.yaml",
+          "target": "policies"
+        },
+        {
           "file": "deny.rego",
+          "target": "policies"
+        },
+        {
+          "file": "policy-server.yaml",
           "target": "policies"
         },
         {

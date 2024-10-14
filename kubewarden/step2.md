@@ -9,7 +9,10 @@
 
 ## Install kwctl
 - `wget https://github.com/kubewarden/kwctl/releases/download/v1.17.0/kwctl-linux-x86_64.zip`{{exec}}
-- `tar -xzf kwctl-linux-x86_64.zip`{{exec}}
+- `unzip kwctl-linux-x86_64.zip`{{exec}}
+- `chmod 700 kwctl-linux-x86_64`{{exec}}
+- `sudo mv ./kwctl-linux-x86_64 /opt/`{{exec}}
+- `echo 'alias kwctl=/opt/kwctl-linux-x86_64' >> ~/.bashrc && source ~/.bashrc`{{exec}}
 
 
 ## Install OPA
@@ -22,4 +25,4 @@
 - `minikube addons enable registry`{{exec}}
 - `kubectl port-forward --namespace kube-system svc/registry 5000:80 &`{{exec}}
 - `mkdir ~/.config/kubewarden`{{exec}}
-- `echo 'insecure_sources: ["localhost:5000"]' > ~/.config/kubewarden/source.yaml`{{exec}}
+- `echo 'insecure_sources: ["localhost:5000"]' > ~/.config/kubewarden/sources.yaml`{{exec}}
