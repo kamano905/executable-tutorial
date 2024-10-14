@@ -1,10 +1,10 @@
 # Policy example
 
 ## Build and deploy policy
-- `kubectl get nodes`
+- `kubectl get nodes`{{exec}}
 - `helm repo add cockroachdb https://charts.cockroachdb.com/`{{exec}}
 - `helm repo update`{{exec}}
-- `helm install cockroachdb-operator cockroachdb/cockroachdb-operator`{{exec}}
+- `helm install cockroachdb cockroachdb/cockroachdb`{{exec}}
 - `kubectl get pods -n cockroachdb`{{exec}}
 - `kubectl create namespace cockroachdb`{{exec}}
 - `kubectl apply -f cockroachdb-cluster.yaml -n cockroachdb`{{exec}}
