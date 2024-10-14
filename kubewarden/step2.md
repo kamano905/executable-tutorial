@@ -1,27 +1,17 @@
-# Setup kubewarden
-
-## Install kubewarden
-- `helm repo add kubewarden https://charts.kubewarden.io`{{exec}}
-- `helm repo update kubewarden`{{exec}}
-- `helm install --wait -n kubewarden --create-namespace kubewarden-crds kubewarden/kubewarden-crds`{{exec}}
-- `helm install --wait -n kubewarden kubewarden-controller kubewarden/kubewarden-controller`{{exec}}
-- `helm install --wait -n kubewarden kubewarden-defaults kubewarden/kubewarden-defaults`{{exec}}
-
-## Install kwctl
-- `wget https://github.com/kubewarden/kwctl/releases/download/v1.17.0/kwctl-linux-x86_64.zip`{{exec}}
-- `unzip kwctl-linux-x86_64.zip`{{exec}}
-- `chmod 700 kwctl-linux-x86_64`{{exec}}
-- `sudo mv ./kwctl-linux-x86_64 /opt/`{{exec}}
-- `echo 'alias kwctl=/opt/kwctl-linux-x86_64' >> ~/.bashrc && source ~/.bashrc`{{exec}}
-
+# Setup-2
 
 ## Install OPA
-- `curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static`{{exec}}
-- `chmod 755 ./opa`{{exec}}
-- `sudo mv ./opa /opt/opa`{{exec}}
-- `echo 'export PATH=$PATH:/opt' >> ~/.bashrc && source ~/.bashrc`{{exec}}
+```
+curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static
+sudo mv ./opa /opt/opa
+chmod 755 ./opa
+`echo 'export PATH=$PATH:/opt' >> ~/.bashrc && source ~/.bashrc
+```{{exec}}
 
-# Deploy local registory
+## Create cluster with one node
+`minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus=1 --memory=1983mb --insecure-registry="10.0.0.0/24"`{{exec}}
+
+## Deploy local registory
 - `minikube addons enable registry`{{exec}}
 - `kubectl port-forward --namespace kube-system svc/registry 5000:80 &`{{exec}}
 - `mkdir ~/.config/kubewarden`{{exec}}

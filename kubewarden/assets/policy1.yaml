@@ -4,7 +4,7 @@ metadata:
   name: privileged-pod-policy
 spec:
   policyServer: instance-a
-  module: http://localhost:5000/my-policy:latest
+  module: http://<registry ip>/my-policy:latest
   rules:
   - apiGroups: [""]
     apiVersions: ["v1"]
