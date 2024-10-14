@@ -1,0 +1,9 @@
+apiVersion: cockroachlabs.com/v1alpha1
+kind: CockroachdbCluster
+metadata:
+  name: cockroachdb-cluster
+  namespace: cockroachdb
+spec:
+  nodes: 1
+  storage:
+    size: 10Gi
