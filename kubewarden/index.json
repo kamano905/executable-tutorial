@@ -33,11 +33,11 @@
           "target": "policy1"
         },
         {
-          "file": "metadata.yaml",
+          "file": "metadata1.yaml",
           "target": "policy1"
         },
         {
-          "file": "deny.rego",
+          "file": "deny-privileged-policy.rego",
           "target": "policy1"
         },
         {
@@ -47,6 +47,22 @@
         {
           "file": "no-privileged-pod.yaml",
           "target": "policy1"
+        },
+        {
+          "file": "policy2.yaml",
+          "target": "policy2"
+        },
+        {
+          "file": "metadata2.yaml",
+          "target": "policy2"
+        },
+        {
+          "file": "deny-protected-policy.rego",
+          "target": "policy2"
+        },
+        {
+          "file": "protected-pod.yaml",
+          "target": "policy2"
         },
         {
           "file": "policy-server.yaml",

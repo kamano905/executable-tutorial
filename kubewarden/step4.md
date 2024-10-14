@@ -1,20 +1,20 @@
-# Policy example
+# Policy 2
 
 ## Build and deploy policy
-- `kubectl get nodes`{{exec}}
-- `helm repo add cockroachdb https://charts.cockroachdb.com/`{{exec}}
-- `helm repo update`{{exec}}
-- `helm install cockroachdb cockroachdb/cockroachdb`{{exec}}
-- `kubectl get pods -n cockroachdb`{{exec}}
-- `kubectl create namespace cockroachdb`{{exec}}
-- `kubectl apply -f cockroachdb-cluster.yaml -n cockroachdb`{{exec}}
-- `kubectl get cockroachdbcluster -n cockroachdb`{{exec}}
-- `kubectl port-forward service/cockroachdb-public -n cockroachdb 8080:8080`{{exec}}
-- `kubectl run -it cockroachdb-client --image=cockroachdb/cockroachdb --rm --restart=Never -- sql --insecure --host=cockroachdb-public.cockroachdb`{{exec}}
--  
-- `opa build -t wasm -e kubernetes/admission/deny policies/policy.rego request.rego`{{exec}}
-- `tar -xvzf bundle.tar.gz /policyexample.wasm`{{exec}}
-- $ kwctl run -e opa --request-path data/other-ns.json policyexample.wasm | jq `{{exec}}
-- $ kwctl run -e opa --request-path data/default-ns.json policyexample.wasm | jq `{{exec}}
+```
+opa build -t wasm -e policy/main common/request.rego policy2/deny-removal-policy.rego
+tar -xvzf bundle.tar.gz /policy2.wasm
+kwctl annotate policy2.wasm --metadata-path policy2/metadata2.yaml --output-path annotated-policy2.wasm
+kwctl push annotated-policy2.wasm localhost:5000/policy2:latest
+```{{exec}}
 
--tar -tzf bundle.tar.gz
+## Apply policy
+- Get cluster IP address of the local registry
+  - `kubectl get svc/registry -n kube-system`{{exec}}
+- Open policy declaration files and edit IP address
+  - `vi policy2/policy2.yaml`{{exec}}
+- Apply policies
+  - `kubectl apply -f policy2/policy2.yaml`{{exec}}
+
+## Create protected pod
+- `kubectl apply -f policy2/protected-pod.yaml`{{exec}}

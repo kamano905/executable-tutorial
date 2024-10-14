@@ -1,16 +1,15 @@
 apiVersion: policies.kubewarden.io/v1
 kind: ClusterAdmissionPolicy
 metadata:
-  name: privileged-pod-policy
+  name: protected-pod-policy
 spec:
   policyServer: instance-a
-  module: registry://<registry ip>/policy1:latest
+  module: registry://<registry ip>/policy2:latest
   rules:
   - apiGroups: [""]
     apiVersions: ["v1"]
     resources: ["pods"]
     operations:
-    - CREATE
-    - UPDATE
+    - DELETE
   mutating: false
   settings: {}

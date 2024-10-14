@@ -7,7 +7,7 @@ mutating: false
 contextAware: false
 executionMode: opa
 annotations:
-  io.kubewarden.policy.title: no-default-namespace
+  io.kubewarden.policy.title: privileged-pod-policy
   io.kubewarden.policy.description: This policy will reject any resource created inside the default namespace
   io.kubewarden.policy.author: The Kubewarden Authors
   io.kubewarden.policy.url: https://github.com/kubewarden/some-policy
