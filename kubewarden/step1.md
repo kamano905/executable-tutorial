@@ -1,6 +1,5 @@
-# Environment setup
 
-## Install minikube
+### Install minikube
 
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -8,14 +7,13 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-a
 echo 'alias kubectl="minikube kubectl --"' >> .bashrc && source ~/.bashrc
 ```{{exec}}
 
-## Install helm
+### Install helm
 ```
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
 ```{{exec}}
 
-## Setup Kubewarden
 ### Install Kubewarden
 ```
 helm repo add kubewarden https://charts.kubewarden.io
@@ -31,7 +29,7 @@ sudo mv ./kwctl-linux-x86_64 /opt/
 echo 'alias kwctl=/opt/kwctl-linux-x86_64' >> ~/.bashrc && source ~/.bashrc
 ```{{exec}}
 
-## Install OPA
+### Install OPA
 ```
 curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static
 chmod 755 ./opa

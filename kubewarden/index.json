@@ -7,11 +7,11 @@
     },
     "steps": [
       {
-        "title": "Setup kubernetes",
+        "title": "Environment setup",
         "text": "step1.md"
       },
       {
-        "title": "Setup kubewarden",
+        "title": "Setup Kubernetes Cluster",
         "text": "step2.md"
       },
       {
@@ -19,7 +19,7 @@
         "text": "step3.md"
       },
       {
-        "title": "Policyexample",
+        "title": "Policy2",
         "text": "step4.md"
       }
     ],
