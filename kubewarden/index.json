@@ -58,7 +58,7 @@
         },
         {
           "file": "cockroachdb-cluster.yaml",
-          "target": "testdb"
+          "target": "policies"
         }
       ]
     }
