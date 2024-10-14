@@ -2,10 +2,12 @@
 
 ## Build and deploy policy
 ```
-opa build -t wasm -e policy/main common/request.rego policy2/deny-removal-policy.rego
-tar -xvzf bundle.tar.gz /policy2.wasm
-kwctl annotate policy2.wasm --metadata-path policy2/metadata2.yaml --output-path annotated-policy2.wasm
-kwctl push annotated-policy2.wasm localhost:5000/policy2:latest
+cd policy2
+opa build -t wasm -e policy/main ../common/request.rego deny-removal-policy.rego
+tar -xvzf bundle.tar.gz /policy.wasm
+kwctl annotate policy2.wasm --metadata-path metadata2.yaml --output-path annotated-policy.wasm
+kwctl push annotated-policy.wasm localhost:5000/policy2:latest
+cd ..
 ```{{exec}}
 
 ## Apply policy
