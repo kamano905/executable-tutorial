@@ -55,6 +55,10 @@
         {
           "file": "other-ns.json",
           "target": "policies"
+        },
+        {
+          "file": "cockroachdb-cluster.yaml",
+          "target": "testdb"
         }
       ]
     }
