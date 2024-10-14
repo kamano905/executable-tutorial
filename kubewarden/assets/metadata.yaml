@@ -1,8 +1,8 @@
 rules:
 - apiGroups: [""]
   apiVersions: ["*"]
-  resources: ["*"]
-  operations: ["CREATE"]
+  resources: ["pods"]
+  operations: ["CREATE", "UPDATE"]
 mutating: false
 contextAware: false
 executionMode: opa
