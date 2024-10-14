@@ -1,7 +1,7 @@
 apiVersion: cockroachlabs.com/v1alpha1
 kind: CockroachdbCluster
 metadata:
-  name: cockroachdb-cluster
+  name: cockroachdb
   namespace: cockroachdb
 spec:
   nodes: 1
