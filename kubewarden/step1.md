@@ -19,14 +19,8 @@ chmod 700 get_helm.sh
 ### Install Kubewarden
 ```
 helm repo add kubewarden https://charts.kubewarden.io
-helm repo update kubewarden`
+helm repo update kubewarden
 ```{{exec}}
-### Install helm chart
-```
-helm install --wait -n kubewarden --create-namespace kubewarden-crds kubewarden/kubewarden-crds
-helm install --wait -n kubewarden kubewarden-controller kubewarden/kubewarden-controller
-```{{exec}}
-
 
 ### Install kwctl
 ```
@@ -35,4 +29,12 @@ unzip kwctl-linux-x86_64.zip
 chmod 700 kwctl-linux-x86_64
 sudo mv ./kwctl-linux-x86_64 /opt/
 echo 'alias kwctl=/opt/kwctl-linux-x86_64' >> ~/.bashrc && source ~/.bashrc
+```{{exec}}
+
+## Install OPA
+```
+curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static
+sudo mv ./opa /opt/opa
+chmod 755 ./opa
+echo 'export PATH=$PATH:/opt' >> ~/.bashrc && source ~/.bashrc
 ```{{exec}}

@@ -1,15 +1,13 @@
 # Setup-2
 
-## Install OPA
-```
-curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static
-sudo mv ./opa /opt/opa
-chmod 755 ./opa
-`echo 'export PATH=$PATH:/opt' >> ~/.bashrc && source ~/.bashrc
-```{{exec}}
-
 ## Create cluster with one node
 `minikube start --driver=docker --extra-config=kubeadm.ignore-preflight-errors=NumCPU --force --cpus=1 --memory=1983mb --insecure-registry="10.0.0.0/24"`{{exec}}
+
+## Create kubewarden controller
+```
+helm install --wait -n kubewarden --create-namespace kubewarden-crds kubewarden/kubewarden-crds
+helm install --wait -n kubewarden kubewarden-controller kubewarden/kubewarden-controller
+```{{exec}}
 
 ## Deploy local registory
 - `minikube addons enable registry`{{exec}}
