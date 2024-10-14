@@ -8,11 +8,13 @@
     "steps": [
       {
         "title": "Environment setup",
-        "text": "step1.md"
+        "text": "step1.md",
+        "verify": "step1-verify,sh"
       },
       {
         "title": "Setup Kubernetes Cluster",
-        "text": "step2.md"
+        "text": "step2.md",
+        "verify": "step2-verify.sh"
       },
       {
         "title": "Policy1",
