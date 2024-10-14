@@ -12,8 +12,8 @@ kwctl push annotated-policy1.wasm localhost:5000/my-policy:latest
 - Get cluster IP address of the local registry
   - `kubectl get svc/registry -n kube-system`{{exec}}
 - Open policy declaration files and edit IP address
-  - `vi policies/policy-server.yaml`
-  - `vi policies/policy1.yaml`
+  - `vi policies/policy-server.yaml`{{exec}}
+  - `vi policies/policy1.yaml`{{exec}}
 - Apply policies
   - `kubectl apply -f policies/policy-server.yaml`{{exec}}
   - `kubectl apply -f policies/policy1.yaml`{{exec}}

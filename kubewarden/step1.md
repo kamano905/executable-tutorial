@@ -1,4 +1,4 @@
-# Setup-1
+# Environment setup
 
 ## Install minikube
 
@@ -34,7 +34,7 @@ echo 'alias kwctl=/opt/kwctl-linux-x86_64' >> ~/.bashrc && source ~/.bashrc
 ## Install OPA
 ```
 curl -L -o opa https://openpolicyagent.org/downloads/v0.69.0/opa_linux_amd64_static
-sudo mv ./opa /opt/opa
 chmod 755 ./opa
+sudo mv ./opa /opt/opa
 echo 'export PATH=$PATH:/opt' >> ~/.bashrc && source ~/.bashrc
 ```{{exec}}
