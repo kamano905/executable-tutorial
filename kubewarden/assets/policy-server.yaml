@@ -3,7 +3,7 @@ kind: PolicyServer
 metadata:
   name: instance-a
 spec:
-  image: ghcr.io/kubewarden/policy-server:v1.3.0
+  image: ghcr.io/kubewarden/policy-server:v1.16.0
   insecureSources:
     - <registry ip>
   replicas: 1

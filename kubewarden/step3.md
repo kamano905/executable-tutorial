@@ -2,10 +2,10 @@
 
 ## Build and deploy policy
 ```
-opa build -t wasm -e kubernetes/admission/deny policies/deny.rego
-tar -xvzf bundle.tar.gz
-kwctl annotate policy.wasm --metadata-path policies/metadata.yaml --output-path annotated-policy1.wasm
-kwctl push annotated-policy1.wasm localhost:5000/my-policy:latest
+opa build -t wasm -e policy/main policies/request.rego policies/deny.rego
+tar -xvzf bundle.tar.gz /policy.wasm
+kwctl annotate policy.wasm --metadata-path policies/metadata.yaml --output-path annotated-policy.wasm
+kwctl push annotated-policy.wasm localhost:5000/my-policy:latest
 ```{{exec}}
 
 ## Apply policy
