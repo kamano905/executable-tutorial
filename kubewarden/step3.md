@@ -2,9 +2,9 @@
 
 ## Build and deploy policy
 ```
-opa build -t wasm -e policy/main policies/request.rego policies/deny.rego
+opa build -t wasm -e policy/main common/request.rego policy1/deny.rego
 tar -xvzf bundle.tar.gz /policy.wasm
-kwctl annotate policy.wasm --metadata-path policies/metadata.yaml --output-path annotated-policy.wasm
+kwctl annotate policy.wasm --metadata-path common/metadata.yaml --output-path annotated-policy.wasm
 kwctl push annotated-policy.wasm localhost:5000/my-policy:latest
 ```{{exec}}
 
@@ -12,11 +12,12 @@ kwctl push annotated-policy.wasm localhost:5000/my-policy:latest
 - Get cluster IP address of the local registry
   - `kubectl get svc/registry -n kube-system`{{exec}}
 - Open policy declaration files and edit IP address
-  - `vi policies/policy-server.yaml`{{exec}}
-  - `vi policies/policy1.yaml`{{exec}}
+  - `vi common/policy-server.yaml`{{exec}}
+  - `vi policy1/policy1.yaml`{{exec}}
 - Apply policies
-  - `kubectl apply -f policies/policy-server.yaml`{{exec}}
-  - `kubectl apply -f policies/policy1.yaml`{{exec}}
+  - `kubectl apply -f common/policy-server.yaml`{{exec}}
+  - `kubectl apply -f policy1/policy1.yaml`{{exec}}
 
 ## Try to create privileged pod
-- `kubectl run privileged-pod --image=nginx --privileged`{{exec}}
+- `kubectl apply -f policy1/no-privileged-pod.yaml`{{exec}}
+- `kubectl apply -f policy1/privileged-pod.yaml`{{exec}}

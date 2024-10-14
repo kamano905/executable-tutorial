@@ -29,31 +29,35 @@
     "assets": {
       "host01": [
         {
-          "file": "pod1.yaml",
-          "target": "pods"
-        },
-        {
           "file": "policy1.yaml",
-          "target": "policies"
+          "target": "policy1"
         },
         {
           "file": "metadata.yaml",
-          "target": "policies"
+          "target": "policy1"
         },
         {
           "file": "deny.rego",
-          "target": "policies"
+          "target": "policy1"
+        },
+        {
+          "file": "privileged-pod.yaml",
+          "target": "policy1"
+        },
+        {
+          "file": "no-privileged-pod.yaml",
+          "target": "policy1"
         },
         {
           "file": "policy-server.yaml",
-          "target": "policies"
-        },
-        {
-          "file": "policyexample.rego",
-          "target": "policies"
+          "target": "common"
         },
         {
           "file": "request.rego",
+          "target": "common"
+        },
+        {
+          "file": "policyexample.rego",
           "target": "policies"
         },
         {
