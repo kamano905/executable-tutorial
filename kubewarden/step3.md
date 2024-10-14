@@ -3,7 +3,9 @@
 ## Build and deploy policy
 - `opa build -t wasm -e kubernetes/admission/deny policies/deny.rego`{{exec}}
 - `tar -xvzf bundle.tar.gz`{{exec}}
-- `kubectl create configmap privileged-pod-policy --from-file=policy.wasm`{{exec}}
+- `kwctl annotate policy.wasm --metadata-path policies/metadata.yaml --output-path annotated-policy1.wasm`{{exec}}`
+- `kwctl push annotated-policy1.wasm localhost:5000/my-policy:latest`{{exec}}
+
 
 ## Apply policy
 - `kubectl apply -f policies/policy1.yaml`{{exec}}
