@@ -12,16 +12,16 @@
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Setup Kubernetes Cluster",
+        "title": "Configuring environment for Policy management and testing",
         "text": "step2/text.md",
         "verify": "step2/verify.sh"
       },
       {
-        "title": "Policy1: Prohibit creating privileged pods",
+        "title": "Policy example 1: Prohibit creating privileged pods",
         "text": "step3.md"
       },
       {
-        "title": "Policy2: Create pods protected from deletion",
+        "title": "Policy example 1: Create pods that are protected from deletion",
         "text": "step4.md"
       }
     ],
