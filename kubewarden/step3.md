@@ -1,7 +1,7 @@
 Kubernetes provides Pod Security Admission(PSA), that ensures pods are deployed in accordance with security standards. There are three security policy levels: privileged, baseline, and restricted. The privileged level allows almost all processes to be executed, and therefore, is generally not recommended. In this step, we aim to create a policy that prohibits the creation of privileged pods.
 
 ### Build and deploy policy
-Create a new file `~/policy1/deny-privileged-policy.rego` and write the policy below.
+Create a new file `vi ~/policy1/deny-privileged-policy.rego`{{exec}} and write the policy below.
 ```
 package kubernetes.admission
 

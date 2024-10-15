@@ -1,7 +1,7 @@
 In this step, we aim to create a policy that enable to create pods protected from deletion.
 
 ### Build and deploy policy
-Create a new file `~/policy2/deny-protected-policy.rego` and write the policy below.
+Create a new file `vi ~/policy2/deny-protected-policy.rego`{{exec}} and write the policy below.
 ```deny-protected-policy.rego
 package kubernetes.admission
 
