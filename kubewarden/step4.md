@@ -18,5 +18,9 @@ cd ..
 
 Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
-### Create protected pod
+### Try to delete protected pod
+Create protected pod.
 - `kubectl apply -f policy2/protected-pod.yaml`{{exec}}
+Try to delete it.
+- `kubectl delete pod/protected-pod`{{exec}}
+Expected outcome contains `Deleting protected pod protected-pod is not allowed`{{}}
