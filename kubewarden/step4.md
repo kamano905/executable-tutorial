@@ -1,6 +1,6 @@
-In this step, we aim to create a policy that enable to create pods protected from deletion.
+Let’s consider another example. Using this policy, we aim to create a Protected Pod that cannot be deleted.
 
-### Build and deploy policy
+### Build and Deploy policy
 Create a new file `vi ~/policy2/deny-protected-policy.rego`{{exec}} and write the policy below.
 ```deny-protected-policy.rego
 package kubernetes.admission
@@ -33,7 +33,8 @@ cd ..
 
 Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
-### Try to delete protected pod
+### Now let's test the Policy !
+#### Try to delete protected pod
 Create protected pod.
 - `kubectl apply -f policy2/protected-pod.yaml`{{exec}}
 
