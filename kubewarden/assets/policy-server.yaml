@@ -5,7 +5,7 @@ metadata:
 spec:
   image: ghcr.io/kubewarden/policy-server:v1.16.0
   insecureSources:
-    - <registry ip>
+    - <CLUSTER-IP of registry>
   replicas: 1
   serviceAccountName: ~
   env:

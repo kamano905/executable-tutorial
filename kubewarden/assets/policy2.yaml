@@ -4,7 +4,7 @@ metadata:
   name: protected-pod-policy
 spec:
   policyServer: instance-a
-  module: registry://<registry ip>/policy2:latest
+  module: registry://<CLUSTER-IP of registry>/policy2:latest
   rules:
   - apiGroups: [""]
     apiVersions: ["v1"]

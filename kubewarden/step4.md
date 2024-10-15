@@ -11,7 +11,7 @@ deny[msg] {
     input.request.oldObject.metadata.labels.protected == "true"
     msg := sprintf("Deleting protected pod %s is not allowed", [input.request.oldObject.metadata.name])
 }
-```
+```{{copy}}
 
 Build and deploy the policy.
 ```
@@ -26,7 +26,7 @@ cd ..
 ### Apply policy
 - Get cluster IP address of the local registry
   - `kubectl get svc/registry -n kube-system`{{exec}}
-- Open policy declaration files and edit IP address
+- Open policy declaration files and edit `<CLUSTER-IP of registry>`
   - `vi policy2/policy2.yaml`{{exec}}
 - Apply policies
   - `kubectl apply -f policy2/policy2.yaml`{{exec}}
@@ -36,6 +36,8 @@ Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and 
 ### Try to delete protected pod
 Create protected pod.
 - `kubectl apply -f policy2/protected-pod.yaml`{{exec}}
+
 Try to delete it.
 - `kubectl delete pod/protected-pod`{{exec}}
+
 Expected outcome contains `Deleting protected pod protected-pod is not allowed`{{}}
