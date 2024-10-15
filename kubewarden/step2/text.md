@@ -10,14 +10,14 @@ helm install --wait -n kubewarden kubewarden-controller kubewarden/kubewarden-co
 ```{{exec}}
 
 ### Enable local registry
-Enables a local container registry for storing and managing policy WebAssembly files.
+To store and manage policy WebAssembly files.
 
 ```
 minikube addons enable registry
 ```{{exec}}
 
 ### Use port forward
-Enables registry access from host machine 
+To access registry from host machine 
 ```
 kubectl port-forward --namespace kube-system svc/registry 5000:80 &
 mkdir ~/.config/kubewarden
