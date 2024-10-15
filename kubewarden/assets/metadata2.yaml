@@ -2,7 +2,7 @@ rules:
 - apiGroups: [""]
   apiVersions: ["*"]
   resources: ["pods"]
-  operations: ["DELTE"]
+  operations: ["DELETE"]
 mutating: false
 contextAware: false
 executionMode: opa

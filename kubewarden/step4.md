@@ -1,7 +1,7 @@
 ### Build and deploy policy
 ```
 cd policy2
-opa build -t wasm -e policy/main ../common/request.rego deny-removal-policy.rego
+opa build -t wasm -e policy/main ../common/request.rego deny-protected-policy.rego
 tar -xvzf bundle.tar.gz /policy.wasm
 kwctl annotate policy.wasm --metadata-path metadata2.yaml --output-path annotated-policy.wasm
 kwctl push annotated-policy.wasm localhost:5000/policy2:latest
@@ -15,6 +15,8 @@ cd ..
   - `vi policy2/policy2.yaml`{{exec}}
 - Apply policies
   - `kubectl apply -f policy2/policy2.yaml`{{exec}}
+
+Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
 ### Create protected pod
 - `kubectl apply -f policy2/protected-pod.yaml`{{exec}}

@@ -19,8 +19,12 @@ cd ..
   - `kubectl apply -f common/policy-server.yaml`{{exec}}
   - `kubectl apply -f policy1/policy1.yaml`{{exec}}
 
-Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the status of created policy becomes ACTIVE.
+Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
 ### Try to create privileged pod
-- `kubectl apply -f policy1/no-privileged-pod.yaml`{{exec}}
-- `kubectl apply -f policy1/privileged-pod.yaml`{{exec}}
+- Create no-privileged-pod
+  - `kubectl apply -f policy1/no-privileged-pod.yaml`{{exec}}
+  - Expected outcome is `pod/no-privileged-pod created`{{}}
+- Create privileged-pod that is prohobited to create
+  - `kubectl apply -f policy1/privileged-pod.yaml`{{exec}}
+  - Expected outcome contains a message `Privileged mode is not allowed for pod privileged-pod`{{}}
