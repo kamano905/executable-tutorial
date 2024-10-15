@@ -1,6 +1,6 @@
 When creating a Pod in Kubernetes, it is crucial to ensure that it is deployed in accordance with security standards. There are three levels of security policies: privileged, baseline, and restricted. The privileged level allows almost all processes to be executed, and therefore, is generally not recommended.  So, let’s create a policy that prohibits the creation of privileged pods in Kubernetes.
 
-### Create and Build Policy
+### Build and Deploy Policy
 Create a new file `vi ~/policy1/deny-privileged-policy.rego`{{exec}} and write the policy below.
 ```
 package kubernetes.admission
@@ -28,28 +28,19 @@ cd ..
 ```{{exec}}
 
 ### Apply policy
-Get cluster IP address of the local registry
-```
-kubectl get svc/registry -n kube-system
-```{{exec}}
-Open policy declaration files and edit `<CLUSTER-IP of registry>`
-```
-vi common/policy-server.yaml
-```{{exec}}
-```
-vi policy1/policy1.yaml
-```{{exec}}
-Apply policies
-```
-kubectl apply -f common/policy-server.yaml
-```{{exec}}
-```
-kubectl apply -f policy1/policy1.yaml
-```{{exec}}
+- Get cluster IP address of the local registry
+    - `kubectl get svc/registry -n kube-system`{{exec}}
+- Open policy declaration files and edit `<CLUSTER-IP of registry>`
+    - `vi common/policy-server.yaml`{{exec}}
+    - `vi policy1/policy1.yaml`{{exec}}
+- Apply policies
+    - `kubectl apply -f common/policy-server.yaml`{{exec}}
+    - `kubectl apply -f policy1/policy1.yaml`{{exec}}
 
 Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
 ### Now let's test the Policy !
+
 #### Create Pod which is not privileged (This Pod should be created)
 ```
 kubectl apply -f policy1/no-privileged-pod.yaml
