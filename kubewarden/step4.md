@@ -1,4 +1,19 @@
+In this step, we aim to create a policy that enable to create pods protected from deletion.
+
 ### Build and deploy policy
+Create a new file `~/policy2/deny-protected-policy.rego` and write the policy below.
+```deny-protected-policy.rego
+package kubernetes.admission
+
+deny[msg] {
+    input.request.kind.kind == "Pod"
+    input.request.operation == "DELETE"
+    input.request.oldObject.metadata.labels.protected == "true"
+    msg := sprintf("Deleting protected pod %s is not allowed", [input.request.oldObject.metadata.name])
+}
+```
+
+Build and deploy the policy.
 ```
 cd policy2
 opa build -t wasm -e policy/main ../common/request.rego deny-protected-policy.rego

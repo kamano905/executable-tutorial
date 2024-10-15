@@ -1,9 +1,27 @@
+Kubernetes provides Pod Security Admission(PSA), that ensures pods are deployed in accordance with security standards. There are three security policy levels (privileged, baseline and restricted). In the privileged level, almost all processes cam be executed, so it is not recommended. In this step, we aim to create a policy that prohibit creating privileged pods.
 
 ### Build and deploy policy
+Create a new file `~/policy1/deny-privileged-policy.rego` and write the policy below.
+```deny-privileged-policy.rego
+package kubernetes.admission
+
+deny[msg] {
+    input.request.kind.kind == "Pod"
+    container := input.request.object.spec.containers[_]
+    container.securityContext.privileged == true
+    msg := sprintf("Privileged mode is not allowed for pod %s", [input.request.object.metadata.name])
+}
+```
+
+Use opa to build rego files into wasm file.
 ```
 cd policy1
 opa build -t wasm -e policy/main ../common/request.rego deny-privileged-policy.rego
 tar -xvzf bundle.tar.gz /policy.wasm
+```{{exec}}
+
+Add metadata to `policy.wasm`{{}} and push to local registry.
+```
 kwctl annotate policy.wasm --metadata-path metadata1.yaml --output-path annotated-policy.wasm
 kwctl push annotated-policy.wasm localhost:5000/policy1:latest
 cd ..

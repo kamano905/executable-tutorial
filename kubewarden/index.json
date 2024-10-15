@@ -1,5 +1,5 @@
 {
-  "title": "Policy as Code with Kubewarden: Implement and Enforce Kubernetes Policies",
+  "title": "Policy as Code with Kubewarden",
   "description": "",
   "details": {
     "intro": {
@@ -17,11 +17,11 @@
         "verify": "step2/verify.sh"
       },
       {
-        "title": "Policy1",
+        "title": "Policy1: Prohibit creating privileged pods",
         "text": "step3.md"
       },
       {
-        "title": "Policy2",
+        "title": "Policy2: Create pods protected from deletion",
         "text": "step4.md"
       }
     ],
@@ -36,10 +36,6 @@
         },
         {
           "file": "metadata1.yaml",
-          "target": "policy1"
-        },
-        {
-          "file": "deny-privileged-policy.rego",
           "target": "policy1"
         },
         {
@@ -59,10 +55,6 @@
           "target": "policy2"
         },
         {
-          "file": "deny-protected-policy.rego",
-          "target": "policy2"
-        },
-        {
           "file": "protected-pod.yaml",
           "target": "policy2"
         },
@@ -73,22 +65,6 @@
         {
           "file": "request.rego",
           "target": "common"
-        },
-        {
-          "file": "policyexample.rego",
-          "target": "policies"
-        },
-        {
-          "file": "default-ns.json",
-          "target": "policies"
-        },
-        {
-          "file": "other-ns.json",
-          "target": "policies"
-        },
-        {
-          "file": "cockroachdb-cluster.yaml",
-          "target": "policies"
         }
       ]
     }
