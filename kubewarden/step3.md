@@ -29,24 +29,38 @@ cd ..
 
 ### Apply policy
 Get cluster IP address of the local registry
-  - `kubectl get svc/registry -n kube-system`{{exec}}
+```
+kubectl get svc/registry -n kube-system
+```{{exec}}
 Open policy declaration files and edit `<CLUSTER-IP of registry>`
-  - `vi common/policy-server.yaml`{{exec}}
-  - `vi policy1/policy1.yaml`{{exec}}
+```
+vi common/policy-server.yaml
+```{{exec}}
+```
+vi policy1/policy1.yaml
+```{{exec}}
 Apply policies
-  - `kubectl apply -f common/policy-server.yaml`{{exec}}
-  - `kubectl apply -f policy1/policy1.yaml`{{exec}}
+```
+kubectl apply -f common/policy-server.yaml
+```{{exec}}
+```
+kubectl apply -f policy1/policy1.yaml
+```{{exec}}
 
 Execute `kubectl get clusteradmissionpolicy.policies.kubewarden.io`{{exec}} and wait until the STATUS of created policy becomes active.
 
 ### Now let's test the Policy !
 #### Create Pod which is not privileged (This Pod should be created)
-```kubectl apply -f policy1/no-privileged-pod.yaml```{{exec}}
+```
+kubectl apply -f policy1/no-privileged-pod.yaml
+```{{exec}}
 
 Expected outcome is `pod/no-privileged-pod created`{{}}
 
 #### Create privileged-pod (The creation of this Pod should be prohibited)
 
-```kubectl apply -f policy1/privileged-pod.yaml```{{exec}}
+```
+kubectl apply -f policy1/privileged-pod.yaml
+```{{exec}}
 
 Expected outcome contains a message `Privileged mode is not allowed for pod privileged-pod`{{}}
