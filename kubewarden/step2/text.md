@@ -17,7 +17,7 @@ minikube addons enable registry
 ```{{exec}}
 
 ### Use port forward
-To access registry from host machine 
+To access registry from host machine.
 ```
 kubectl port-forward --namespace kube-system svc/registry 5000:80 &
 mkdir ~/.config/kubewarden
