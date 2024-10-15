@@ -9,7 +9,7 @@
       {
         "title": "Environment setup",
         "text": "step1/text.md",
-        "verify": "step1/verify,sh"
+        "verify": "step1/verify.sh"
       },
       {
         "title": "Setup Kubernetes Cluster",
